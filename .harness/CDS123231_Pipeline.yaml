@@ -1,0 +1,22 @@
+pipeline:
+  name: CDS123231_Pipeline
+  identifier: CDS123231_Pipeline
+  projectIdentifier: DoNotDeleteMani
+  orgIdentifier: default
+  tags: {}
+  stages:
+    - stage:
+        name: Deploy_Stage
+        identifier: Deploy_Stage
+        template:
+          templateRef: CDS123231_Tpl
+          versionLabel: "1.0"
+          templateInputs:
+            type: Deployment
+            spec:
+              service:
+                serviceRef: svc1
+              environment:
+                environmentRef: env1
+                infrastructureDefinitions:
+                  - identifier: infra1
