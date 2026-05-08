@@ -1,0 +1,21 @@
+pipeline:
+  name: CDS123231_CrossRepo_Pipeline
+  identifier: CDS123231_CrossRepo_Pipeline
+  projectIdentifier: DoNotDeleteMani
+  orgIdentifier: default
+  tags: {}
+  stages:
+    - stage:
+        name: Deploy Stage
+        identifier: Deploy_Stage
+        template:
+          templateRef: CDS123231_Template
+          versionLabel: "1.0"
+          templateInputs:
+            type: Deployment
+            spec:
+              service:
+                serviceRef: <+input>
+              environment:
+                environmentRef: <+input>
+                infrastructureDefinitions: <+input>
